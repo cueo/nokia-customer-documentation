@@ -34,10 +34,8 @@ import java.net.URLConnection;
 
 public class DownloadActivity extends AppCompatActivity
 {
-	//private String link="https://www.google.co.in/search?q=cherry+blossom&biw=1440&bih=724&source=lnms&tbm=isch&sa=X&ved=0ahUKEwi4iIf--_LNAhUFT48KHUmNB2oQ_AUIBigB#imgrc=9PQsUbm6sRzRAM%3A";
-	//private String link="http://www.textfiles.com/food/whitbred.txt";
-	private String link = "https://www.youtube.com/watch?v=_iBpTqp8nX8";
-	//private String link="http://itreallyatemyhand.tumblr.com/";
+	//private String link = "https://www.youtube.com/watch?v=_iBpTqp8nX8";
+	private String link = "file:///";
 	private ProgressDialog pDialog;
 	public static final int progress_bar_type = 0;
 
@@ -53,6 +51,11 @@ public class DownloadActivity extends AppCompatActivity
 		wb.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
 		//wb.getSettings().setPluginState(WebSettings.PluginState.ON);
 		wb.setWebChromeClient(new WebChromeClient());
+
+		File sdcard = Environment.getExternalStorageDirectory();
+		link += sdcard.toString() + "/Nokia/system_overview/concepts/configuration_management.html";
 		wb.loadUrl(link);
+
+		System.out.println("link: " + link);
 	}
 }
